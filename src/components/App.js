@@ -10,9 +10,10 @@ import StreamList from './streams/StreamList'
 
 const App = () => {
   return(
-    <div>
-      <Header/>
+    <div className="ui container">
       <BrowserRouter>
+        <Header />
+
         <Route path="/" exact component={StreamList}/>
         <Route path="/streams/new" component={StreamCreate}/>
         <Route path="/streams/edit" component={StreamEdit}/>
