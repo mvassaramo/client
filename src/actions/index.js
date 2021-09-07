@@ -10,6 +10,9 @@ import {
 import streams from '../apis/streams'
 import { formValueSelector } from 'redux-form'
 
+
+// auth actions
+
 export const signIn = (userId) => {
   return {
     type: SIGN_IN,
@@ -22,6 +25,8 @@ export const signOut = () => {
     type: SIGN_OUT
   }
 }
+
+// steam actions
 
 export const createStream = formValues => async dispatch => {
   const response = await streams.post('/streams', formValues)
