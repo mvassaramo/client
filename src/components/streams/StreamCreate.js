@@ -1,4 +1,6 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { createStream } from '../../actions'
 import { Field, formValues, reduxForm } from 'redux-form'
 
 class StreamCreate extends React.Component {
@@ -24,8 +26,8 @@ class StreamCreate extends React.Component {
     )
   }
 
-  onSubmit(formValues) {
-    console.log('formValues', formValues)
+  onSubmit = (formValues) => {
+    this.props.createStream(formValues)
   }
 
   render() {
@@ -57,12 +59,12 @@ const validate = (formValues) => {
   return errors
 }
 
-export default reduxForm({
+const formWrapped = reduxForm({
   form: 'streamCreate',
   validate: validate
 })(StreamCreate)
 
-
+export default connect(null, { createStream })(formWrapped)
 
 // Field component always has to be given name prop
 // Field is responsible for redux to handle the data but not what gets
