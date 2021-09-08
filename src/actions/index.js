@@ -26,7 +26,7 @@ export const signOut = () => {
   }
 }
 
-// steam actions
+// stream actions
 
 export const createStream = formValues => async (dispatch, getState) => {
   const { userId } = getState().auth
